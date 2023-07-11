@@ -83,12 +83,12 @@ public class Market implements iMarketBehaviour,iQueueBehaviour, iReturnOrder {
         }
         
     }
-
+    /** Метод возврата товара*/
     @Override
     public void returnOrder() {
         System.out.println("Order returned successfully");
     }
-
+    /** Метод причина возврата товара*/
     @Override
     public void  getReasonForReturn() {
         System.out.println("Брак");

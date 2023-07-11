@@ -3,6 +3,8 @@
 package Interfaces;
 
 public interface iReturnOrder {
+     /** Метод возврата товара*/
     public void returnOrder();
+     /** Метод причина возврата товара*/
     public void getReasonForReturn();
 }
