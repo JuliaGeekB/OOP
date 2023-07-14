@@ -3,13 +3,19 @@ package StudentDomen;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroup implements Iterable<Student> {
-    private List<Student> group;
-    private Integer idGroup;
+import javax.xml.stream.events.Comment;
 
-    public StudentGroup(List<Student> group, Integer idGroup) {
+import org.w3c.dom.css.Counter;
+
+public class StudentGroup implements Iterable<Student> , Comparable<StudentGroup>{
+    private List<Student> group;
+    private Integer idGroup; // новое поле
+    private Integer numberOfStudents; // новое поле
+
+    public StudentGroup(List<Student> group, Integer idGroup, Integer  numberOfStudents) {
         this.group = group;
         this.idGroup = idGroup;
+        this.numberOfStudents=numberOfStudents;
     }
 
     public List<Student> getGroup() {
@@ -28,12 +34,21 @@ public class StudentGroup implements Iterable<Student> {
         this.idGroup = idGroup;
     }
 
+    public Integer getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    public void setNumberOfStudents(Integer numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
+    }
+
+
+    // переопределение метода: вывод идентификатор группы, количество студентов и список студентов
      @Override
     public String toString() {
-        return "StudentGroup{" +
-                "group=" + group + "\n"+
-                ", idGroup=" + idGroup +
-                '}';
+        return "idGroup=" + idGroup +
+                ", количество студентов-" + numberOfStudents + "\n"+
+                group;
     }
 
     @Override
@@ -64,5 +79,22 @@ public class StudentGroup implements Iterable<Student> {
         
     }
     
+    @Override
+    public int compareTo (StudentGroup o) {
+
+        if(this.numberOfStudents==o.numberOfStudents){
+            if (this.idGroup==o.idGroup){
+                return 0;
+            }
+            if (this.idGroup<o.idGroup){
+                return -1;
+            }
+            return 1;
+        }
+        if(this.numberOfStudents<o.numberOfStudents){
+            return -1;
+        }
+        return 1;        
+    }
     
 }

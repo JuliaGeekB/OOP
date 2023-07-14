@@ -5,15 +5,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+
 public class StudentSteam implements Iterable<StudentGroup>, List<StudentGroup>{
     private List<StudentGroup> course;
-    private Integer idCourse;
-
+    private Integer idCourse; // новое поле
+    // конструктор
     public StudentSteam(List<StudentGroup> course, Integer idCourse) {
         this.course = course;
         this.idCourse = idCourse;
     }
-
+    // методы
     public List<StudentGroup> getCourse() {
         return course;
     }
@@ -30,6 +31,7 @@ public class StudentSteam implements Iterable<StudentGroup>, List<StudentGroup>{
         this.idCourse = idCourse;
     }
 
+    
      @Override
     public String toString() {
         return "StudentCourse{" 
@@ -38,11 +40,26 @@ public class StudentSteam implements Iterable<StudentGroup>, List<StudentGroup>{
                 + '}';
     }
 
-    @Override
+    @Override // Итератор через анонимный метод 
     public Iterator<StudentGroup> iterator() {
-       return new StudentSteamIterator(this);
+       return new Iterator<StudentGroup>(){ 
+        private int index=0;
+
+        @Override
+        public boolean hasNext() {
+            return index <course.size();
+        }
+
+        @Override
+        public StudentGroup next() {
+            if (!hasNext()){
+                return null;
+            }
+        return course.get(index++);
+        }
+        
+    };
     }
-  
 
     @Override
     public int size() {
@@ -175,4 +192,5 @@ public class StudentSteam implements Iterable<StudentGroup>, List<StudentGroup>{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'subList'");
     }
+
 }
