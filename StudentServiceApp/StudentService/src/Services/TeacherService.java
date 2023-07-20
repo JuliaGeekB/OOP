@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import StudentDomen.PersonComparator;
-import StudentDomen.Student;
 import StudentDomen.Teacher;
 
 public class TeacherService implements iPersonService<Teacher> {
@@ -28,6 +27,7 @@ public class TeacherService implements iPersonService<Teacher> {
         teachers.add(per);
     }
     
+    // метод сортировки 
     public void sortByFIOTchrLst()
     {
        

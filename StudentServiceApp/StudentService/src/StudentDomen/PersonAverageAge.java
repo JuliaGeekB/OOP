@@ -7,7 +7,7 @@ public class PersonAverageAge<T extends Person> {
     public PersonAverageAge(List userList){
         this.userlist=userList;
     }
-
+    // Метод нахождения среднего возраста группы
     public double getAverageAge(List <T> userlist){
         double ageSum=0;
         for (T user: userlist){

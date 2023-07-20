@@ -1,8 +1,6 @@
 package Controllers;
 
-import Services.StudentService;
 import Services.TeacherService;
-import StudentDomen.Student;
 import StudentDomen.Teacher;
 
 public class TeacherController implements iPersonController<Teacher> {
