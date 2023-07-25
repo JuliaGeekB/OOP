@@ -1,17 +1,20 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import Controller.Controller;
 import Controller.iGetModel;
 import Controller.iGetView;
+import Model.HashModel;
 import Model.ModelFile;
 import Model.ModelList;
 import Model.Student;
 import View.View;
+import View.ViewEng;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       // System.out.println("Hello, World!");
+       
 
        List<Student> students = new ArrayList<Student>();
        Student s1 = new Student("Сергей",  21, 101);
@@ -27,14 +30,20 @@ public class App {
        students.add(s5);
        students.add(s6);
 
-       ModelFile fModel = new ModelFile("StudentDB.txt");
+       //ModelFile fModel = new ModelFile("StudentDB.txt");
        //fModel.saveAllStudentToFile(students);
 
-       iGetModel modelFile = fModel;
-       iGetModel model = new ModelList(students);
-       iGetView view = new View();
+       
+       HashModel hModel = new HashModel(null);
+       
+       //iGetModel modelFile = fModel;
+       //iGetModel model = new ModelList(students);
+       
+       // в iGetModel передаем список HashModel
+       iGetModel hashModel = hModel;
+       iGetView view = new ViewEng();
 
-       Controller control = new Controller(modelFile, view);
+       Controller control = new Controller(hashModel, view);
 
        //control.update();
        control.run();

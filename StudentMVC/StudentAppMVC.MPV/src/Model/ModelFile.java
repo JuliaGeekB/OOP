@@ -63,5 +63,11 @@ public class ModelFile  implements iGetModel {
             System.out.println(e.getMessage());
         }
     }
+
+    @Override
+    public void deleteStudent(String id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteStudent'");
+    }
     
 }

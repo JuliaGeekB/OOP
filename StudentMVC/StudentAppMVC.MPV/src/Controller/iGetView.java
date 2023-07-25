@@ -6,6 +6,8 @@ import Model.Student;
 
 public interface iGetView {
     void printAllStudents(List<Student> students);
+    
+    
 
     // Метод выводит информацию о каждом студенте на консоль
     void printAllStudent(List<Student> students);
@@ -24,6 +26,9 @@ public interface iGetView {
 
     // Метод для получения id студента, которого пользователь хочет обновить.
     Long getStudentIdToUpdate();
+
+
+
     
 }
 

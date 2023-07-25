@@ -2,15 +2,18 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import Model.ModelList;
 import Model.Student;
 import View.View;
+import View.ViewEng;
 
 public class Controller {
 
     private iGetModel model;
     private iGetView view;
+    
     private List<Student> students = new ArrayList<>();
 
     public Controller(iGetModel model, iGetView view) {
@@ -37,6 +40,7 @@ public class Controller {
         if(testData(students))
         {
            view.printAllStudents(students);
+
         }
         else
         {
@@ -49,6 +53,8 @@ public class Controller {
 
     public void run()
     {
+        Scanner scanner = new Scanner (System.in);
+
         Command com = Command.NONE;
         boolean getNewIteration = true;
         while(getNewIteration)
@@ -63,7 +69,20 @@ public class Controller {
                     break;
                 case LIST:
                     view.printAllStudents(model.getAllStudents());
+                case DELETE:
+                    view.prompt("Enter student ID to delete: "); // вводится id студента для удаления
+                    String id = scanner.nextLine();
+                    try{
+                        model.deleteStudent(id);
+                        view.prompt("Successful");
+
+                    }catch(IllegalArgumentException e){// ошибка, если id студента не найден
+                        view.prompt("ошибка");
+                    }
+
+                    
                     break;
+
             }
 
         }

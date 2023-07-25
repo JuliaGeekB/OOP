@@ -8,11 +8,17 @@ public class ModelList implements iGetModel {
     private List<Student> students;
 
     public ModelList(List<Student> students) {
-        this.students = students;
-    }
+       this.students = students;
+    } 
 
     public List<Student> getAllStudents()
     {
         return students;
+    }
+
+    @Override
+    public void deleteStudent(String id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteStudent'");
     }
 }

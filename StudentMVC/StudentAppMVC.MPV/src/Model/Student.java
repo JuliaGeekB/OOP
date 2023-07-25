@@ -3,6 +3,7 @@ package Model;
 public class Student extends Person implements Comparable<Student> {
 
     private int id;
+    public Long getId;
 
     public Student(String name, int age, int id) {
         super(name, age);
