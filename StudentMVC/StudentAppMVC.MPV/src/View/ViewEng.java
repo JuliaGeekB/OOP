@@ -10,9 +10,9 @@ public class ViewEng implements iGetView {
     public void printAllStudents(List<Student> students)
     {
         System.out.println("------The list of students--------");
-        for(Student stud: students)
+        for(Student s: students)
         {
-            System.out.println(stud);
+            System.out.println(s);
         }
         System.out.println("===============================");
     }

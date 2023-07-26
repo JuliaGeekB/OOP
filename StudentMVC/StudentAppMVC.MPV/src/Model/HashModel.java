@@ -37,12 +37,18 @@ public class HashModel implements iGetModel{
 
     @Override
     public List<Student> getAllStudents() {
-        return (List<Student>) students;
+        List<Student> outList = new ArrayList<>();
+        for(Student s : students.values())
+        {
+            outList.add(s);
+        }
+        return outList;
     }
-
+      
+    
     @Override
     public void deleteStudent(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteStudent'");
+        students.remove(id);
     }
+
 }

@@ -34,7 +34,19 @@ public class App {
        //fModel.saveAllStudentToFile(students);
 
        
-       HashModel hModel = new HashModel(null);
+
+
+       HashMap<Integer, Student> stHash = new HashMap<>();
+       stHash.put(s1.getId(), s1);
+       stHash.put(s2.getId(), s2);
+       stHash.put(s3.getId(), s3);
+       stHash.put(s4.getId(), s4);
+       stHash.put(s5.getId(), s5);
+       stHash.put(s6.getId(), s6);
+       
+       HashModel hModel = new HashModel(stHash);
+
+
        
        //iGetModel modelFile = fModel;
        //iGetModel model = new ModelList(students);
